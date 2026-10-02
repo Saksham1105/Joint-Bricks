@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Design 3 — Monograph Architectural Palette */
+    /* Light Surface Tokens (Bone, Alabaster & Warm Limestone) */
+    --bg-canvas: #FAF8F5;
+    --bg-canvas-alt: #F4F0E6;
+    --bg-stone: #EAE4D5;
+    --bg-stone-light: #F0ECE1;
+    --bg-stone-surface: #E5DFC8;
+    
+    /* Deep Obsidian, Volcanic Basalt & Graphite */
+    --bg-charcoal: #0B0B0A;
+    --bg-charcoal-surface: #141412;
+    --bg-charcoal-card: #1C1C19;
+    --bg-charcoal-elevated: #242420;
+
+    /* Typographic Hierarchy */
+    --text-primary: #0F0F0E;
+    --text-secondary: #47453F;
+    --text-muted: #827E74;
+    --text-on-dark: #FAF8F5;
+    --text-on-dark-muted: #BCB8AD;
+    --text-on-dark-subtle: #7A776F;
+
+    /* Architectural Hairlines & Precision Grids */
+    --border-stone: #DDD5C5;
+    --border-stone-light: #E8E2D4;
+    --border-charcoal: #23221E;
+    --border-charcoal-light: #302F29;
+
+    /* Architectural Burnished Bronze & Cast Brass */
+    --brass-primary: #BFA272;
+    --brass-light: #D4BA8C;
+    --brass-dark: #967A46;
+    --brass-tint: rgba(191, 162, 114, 0.12);
+    --brass-border: rgba(191, 162, 114, 0.32);
+
+    /* Screening Benchmark & Status Indicators */
+    --status-benchmark: #285A42;
+    --status-benchmark-tint: rgba(40, 90, 66, 0.12);
+    --status-warning: #996F20;
+    --status-notice: #8A2E20;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, .font-serif-display {
+    font-family: 'Cormorant Garamond', 'DM Serif Display', Georgia, serif;
+    letter-spacing: -0.018em;
+  }
+
+  .font-display, .font-cinzel {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.04em;
+  }
+
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Tabular Numerals for Financial Data & Screening Metrics */
+.font-mono-nums {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Technical Monospace & Cadastral Annotations */
+.font-cadastral {
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+/* Editorial Interactive Hover Underline */
+.editorial-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: color 0.3s ease;
+}
+.editorial-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #BFA272;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.editorial-link:hover::after {
+  width: 100%;
+}
+
+/* Architectural Dossier & Monograph Cards */
+.dossier-card {
+  background-color: #FAF8F5;
+  border: 1px solid #DDD5C5;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.dossier-card:hover {
+  border-color: #BFA272;
+  box-shadow: 0 16px 40px -12px rgba(11, 11, 10, 0.08);
+  transform: translateY(-2px);
+}
+
+.dossier-card-dark {
+  background-color: #141412;
+  border: 1px solid #23221E;
+  color: #FAF8F5;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.dossier-card-dark:hover {
+  border-color: #BFA272;
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Architectural Blueprint Corner Markers */
+.corner-crosshair {
+  position: relative;
+}
+.corner-crosshair::before,
+.corner-crosshair::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+.corner-crosshair::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid #BFA272;
+  border-left: 1px solid #BFA272;
+}
+.corner-crosshair::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid #BFA272;
+  border-right: 1px solid #BFA272;
+}
+
+/* Precision Hairlines */
+.editorial-hairline {
+  border-top: 1px solid #DDD5C5;
+}
+
+.editorial-hairline-dark {
+  border-top: 1px solid #23221E;
+}
+
+/* High-Contrast Architectural Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #DDD5C5;
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid #C4BCAC;
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid #BFA272;
+  outline-offset: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0B0B0A;
+  cursor: pointer;
+  border: 2px solid #BFA272;
+  box-shadow: 0 2px 8px rgba(11, 11, 10, 0.3);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: #BFA272;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0B0B0A;
+  cursor: pointer;
+  border: 2px solid #BFA272;
+  box-shadow: 0 2px 8px rgba(11, 11, 10, 0.3);
+}
+
+/* Custom Architectural Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F0E6;
+}
+::-webkit-scrollbar-thumb {
+  background: #DDD5C5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BFA272;
+}
+
+/* Subtle Architectural Grid Background */
+.bg-grid-pattern {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+.bg-grid-pattern-dark {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
